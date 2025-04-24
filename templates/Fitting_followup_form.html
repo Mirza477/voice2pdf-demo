@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitting Follow-Up Form</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    h1, h2 { color: #333; }
+    .field { margin-bottom: 12px; }
+    label { font-weight: bold; display: block; margin-bottom: 4px; }
+    .section { margin-top: 24px; }
+    ul, ol { margin-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Fitting Follow-Up</h1>
+
+  <div class="field">
+    <label>Follow-Up Date:</label>
+    {{ follow_up_date }}
+  </div>
+  <div class="field">
+    <label>Audiologist:</label>
+    {{ audiologist }}
+  </div>
+  <div class="field">
+    <label>Provider Number:</label>
+    {{ provider_number }}
+  </div>
+
+  <div class="section">
+    <h2>Review</h2>
+    <div class="field">
+      <label>Device Usage:</label>
+      {{ device_usage }}
+    </div>
+    <div class="field">
+      <label>COSI Outcomes:</label>
+      {{ cosi_outcomes }}
+    </div>
+    <div class="field">
+      <label>Reprogramming at Follow-Up:</label>
+      {{ reprogramming }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>HSP Compliance Checklist Prior to Follow-Up</h2>
+    <div class="field">
+      <label>Degree of Change:</label>
+      {{ degree_of_change }}
+    </div>
+    <div class="field">
+      <label>Device Verification & Validation:</label>
+      {{ device_verification }}
+    </div>
+    <div class="field">
+      <label>Real Ear Measurements (Live Speech Mapping / Insertion Gain):</label>
+      {{ real_ear_measurements }}
+    </div>
+    <div class="field">
+      <label>Aided Speech Testing (SPIN / AB Words):</label>
+      {{ aided_speech_testing }}
+    </div>
+    <div class="field">
+      <label>Unaided Score:</label>
+      {{ unaided_score }}
+    </div>
+    <div class="field">
+      <label>Aided Score:</label>
+      {{ aided_score }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Patient Information</h2>
+    <div class="field">
+      <label>Patient Name:</label>
+      {{ patient_name }}
+    </div>
+    <div class="field">
+      <label>Date of Birth:</label>
+      {{ date_of_birth }}
+    </div>
+    <div class="field">
+      <label>Referring Physician:</label>
+      {{ referring_physician }}
+    </div>
+    <div class="field">
+      <label>Patient Type:</label>
+      {{ patient_type }}
+    </div>
+    <div class="field">
+      <label>Final Ability with Hearing Aid:</label>
+      {{ final_ability }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Fitting Details</h2>
+    <div class="field">
+      <label>Device Make & Model:</label>
+      {{ device_models }}
+    </div>
+    <div class="field">
+      <label>Device Type:</label>
+      {{ device_type }}
+    </div>
+    <div class="field">
+      <label>Coupling:</label>
+      {{ device_coupling }}
+    </div>
+    <div class="field">
+      <label>Retention:</label>
+      {{ device_retention }}
+    </div>
+    <div class="field">
+      <label>Filters:</label>
+      {{ device_filters }}
+    </div>
+    <div class="field">
+      <label>Fitting Formula:</label>
+      {{ fitting_formula }}
+    </div>
+    <div class="field">
+      <label>Programming Details:</label>
+      {{ programming_details }}
+    </div>
+    <div class="field">
+      <label>VC Setup:</label>
+      {{ vc_setup }}
+    </div>
+    <div class="field">
+      <label>Program Setup:</label>
+      {{ program_setup }}
+    </div>
+    <div class="field">
+      <label>Accessory Setup:</label>
+      {{ accessory_setup }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Verification & Validation</h2>
+    <div class="field">
+      <label>Targets Met:</label>
+      {{ targets_met }}
+    </div>
+    <div class="field">
+      <label>Unaided Score:</label>
+      {{ unaided_score_verification }}
+    </div>
+    <div class="field">
+      <label>Aided Score:</label>
+      {{ aided_score_verification }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Review & Education</h2>
+    <div class="field">
+      <label>Insertion & Removal Reviewed:</label>
+      {{ insertion_removal_reviewed }}
+    </div>
+    <div class="field">
+      <label>Battery Change & On/Off Reviewed:</label>
+      {{ battery_onoff_reviewed }}
+    </div>
+    <div class="field">
+      <label>VC/PB Usage Reviewed:</label>
+      {{ usage_vc_pb_reviewed }}
+    </div>
+    <div class="field">
+      <label>Cleaning & Maintenance Reviewed:</label>
+      {{ cleaning_maintenance_reviewed }}
+    </div>
+    <div class="field">
+      <label>App & Audio Streaming via Bluetooth:</label>
+      {{ app_streaming_reviewed }}
+    </div>
+    <div class="field">
+      <label>Hearing Loss Education Reviewed:</label>
+      {{ education_reviewed }}
+    </div>
+    <div class="field">
+      <label>Communication Strategies Reviewed:</label>
+      {{ communication_reviewed }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Frequency</h2>
+    <ul>
+      <li>Hardly Ever (10%): {{ hardly_ever }}</li>
+      <li>Occasionally (25%): {{ occasionally }}</li>
+      <li>Half the Time (50%): {{ half_time }}</li>
+      <li>Most of the Time (75%): {{ most_time }}</li>
+      <li>Almost Always (100%): {{ almost_always }}</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Specific Needs (in order of importance)</h2>
+    <ol>
+      <li>{{ need_1 }}</li>
+      <li>{{ need_2 }}</li>
+      <li>{{ need_3 }}</li>
+      <li>{{ need_4 }}</li>
+      <li>{{ need_5 }}</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Outcomes</h2>
+    <div class="field">
+      <label>Better / Worse / No Difference:</label>
+      {{ outcome }}
+    </div>
+    <div class="field">
+      <label>Verification & Validation Performed:</label>
+      {{ verification_performed }}
+    </div>
+    <div class="field">
+      <label>If Not, To Do Today:</label>
+      {{ to_do_today }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Appointment Summary Notes</h2>
+    <p>{{ appointment_summary }}</p>
+  </div>
+
+  <div class="section">
+    <h2>Plan of Action & Claims</h2>
+    <div class="field">
+      <label>Plan of Action:</label>
+      {{ plan_of_action }}
+    </div>
+    <div class="field">
+      <label>HSP Claim:</label>
+      {{ hsp_claim }}
+    </div>
+    <div class="field">
+      <label>Future Recall:</label>
+      {{ future_recall }}
+    </div>
+    <div class="field">
+      <label>Private Fitting Complete:</label>
+      {{ private_fitting_complete }}
+    </div>
+    <div class="field">
+      <label>HSP Fitting Complete (Activate Claim):</label>
+      {{ hsp_fitting_complete }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Second Follow-Up Appointment</h2>
+    <div class="field">
+      <label>Rehabilitation + FTC Appointment:</label>
+      {{ rehab_ftc_appointment }}
+    </div>
+  </div>
+</body>
+</html>

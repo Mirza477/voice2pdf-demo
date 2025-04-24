@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starkey Livio 1000 Fitting Form</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    h1, h2 { color: #333; margin-top: 1.5em; }
+    .field { margin-bottom: 12px; }
+    label { font-weight: bold; display: block; margin-bottom: 4px; }
+    .section { margin-top: 24px; }
+    ul, ol { margin-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Hearing Aid Fitting / ALD Fitting</h1>
+
+  <div class="field">
+    <label>Fitting Date:</label>
+    {{ fitting_date }}
+  </div>
+  <div class="field">
+    <label>Audiologist:</label>
+    {{ audiologist }}
+  </div>
+  <div class="field">
+    <label>Provider Number:</label>
+    {{ provider_number }}
+  </div>
+
+  <div class="section">
+    <h2>Patient Details</h2>
+    <div class="field">
+      <label>Patient Name:</label>
+      {{ patient_name }}
+    </div>
+    <div class="field">
+      <label>Date of Birth:</label>
+      {{ date_of_birth }}
+    </div>
+    <div class="field">
+      <label>Referring Physician:</label>
+      {{ referring_physician }}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Patient Type</h2>
+    <label><input type="radio" name="patient_type" value="Private"> Private</label>
+    <label><input type="radio" name="patient_type" value="HSP Initial fitting"> HSP Initial fitting</label>
+    <label><input type="radio" name="patient_type" value="HSP Refit"> HSP Refit</label>
+    <label><input type="radio" name="patient_type" value="HSP Replacement"> HSP Replacement</label>
+  </div>
+
+  <div class="section">
+    <h2>HSP Compliance Checklist</h2>
+    <div class="field">
+      <label>Client agreement form signed:</label>
+      <label><input type="radio" name="agreement_signed" value="Yes"> Yes</label>
+      <label><input type="radio" name="agreement_signed" value="No"> No</label>
+    </div>
+    <div class="field">
+      <label>HSP Refitting:</label>
+      <label><input type="radio" name="hsp_refitting" value="Yes"> Yes</label>
+      <label><input type="radio" name="hsp_refitting" value="No"> No</label>
+    </div>
+    <div class="field">
+      <label>If refit, reason & documentation:</label>
+      <textarea name="refit_reason" rows="4" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>Replacement Fitting:</label>
+      <label><input type="radio" name="replacement_fitting" value="Yes"> Yes</label>
+      <label><input type="radio" name="replacement_fitting" value="No"> No</label>
+    </div>
+    <div class="field">
+      <label>If replacing, statutory declaration & fee quoted:</label>
+      <label><input type="radio" name="declaration_received" value="Yes"> Yes</label>
+      <label><input type="radio" name="declaration_received" value="No"> No</label>
+    </div>
+    <div class="field">
+      <label><input type="checkbox" name="otoscopy_checked"> Otoscopy checked prior to fitting</label>
+    </div>
+    <div class="field">
+      <label><input type="checkbox" name="cosi_goals_obtained"> COSI goals obtained prior to fitting</label>
+    </div>
+    <div class="field">
+      <label><input type="checkbox" name="assessment_reviewed"> Last assessment reviewed in past 12 months</label>
+    </div>
+    <div class="field">
+      <label><input type="checkbox" name="reserve_gain"> ≥10 dB reserve gain (500 Hz–4 kHz)</label>
+    </div>
+    <div class="field">
+      <label><input type="checkbox" name="exemption_criteria"> Exemption criteria met if insufficient gain</label>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>COSI Hearing Goals</h2>
+    <p><strong>Degree of Change / Final Ability:</strong></p>
+    <label><input type="radio" name="degree_change" value="Worse"> Worse</label>
+    <label><input type="radio" name="degree_change" value="No Difference"> No Difference</label>
+    <label><input type="radio" name="degree_change" value="Slightly Better"> Slightly Better</label>
+    <label><input type="radio" name="degree_change" value="Better"> Better</label>
+    <label><input type="radio" name="degree_change" value="Much Better"> Much Better</label>
+
+    <p><strong>Frequency:</strong></p>
+    <ul>
+      <li>Hardly Ever (10%): {{ hardly_ever }}</li>
+      <li>Occasionally (25%): {{ occasionally }}</li>
+      <li>Half the Time (50%): {{ half_time }}</li>
+      <li>Most of the Time (75%): {{ most_time }}</li>
+      <li>Almost Always (100%): {{ almost_always }}</li>
+    </ul>
+
+    <p><strong>Specific Needs (in order):</strong></p>
+    <ol>
+      <li>{{ need_1 }}</li>
+      <li>{{ need_2 }}</li>
+      <li>{{ need_3 }}</li>
+      <li>{{ need_4 }}</li>
+      <li>{{ need_5 }}</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Hearing Aid Fitting Details</h2>
+    <div class="field">
+      <label>Fitting Mode:</label>
+      <label><input type="radio" name="fitting_mode" value="Binaural"> Binaural</label>
+      <label><input type="radio" name="fitting_mode" value="Monaural"> Monaural</label>
+      <label><input type="radio" name="fitting_mode" value="Left Only"> Left only</label>
+      <label><input type="radio" name="fitting_mode" value="Right Only"> Right only</label>
+      <label><input type="radio" name="fitting_mode" value="ALD"> ALD</label>
+    </div>
+    <div class="field">
+      <label>Device Make & Model:</label>
+      <input type="text" name="device_model" value="Starkey Livio 1000 RICs" />
+    </div>
+    <p><strong>Device Type:</strong></p>
+    <label><input type="checkbox" name="device_type" value="BTE"> BTE</label>
+    <label><input type="checkbox" name="device_type" value="RIC"> RIC</label>
+    <label><input type="checkbox" name="device_type" value="IIC/CIC"> IIC/CIC</label>
+    <label><input type="checkbox" name="device_type" value="ITC/ITE"> ITC/ITE</label>
+    <label><input type="checkbox" name="device_type" value="CROS"> CROS</label>
+
+    <p><strong>Coupling:</strong></p>
+    <label><input type="radio" name="coupling" value="Thin tube"> Thin tube</label>
+    <label><input type="radio" name="coupling" value="Standard tube"> Standard tube</label>
+    <label><input type="radio" name="coupling" value="Receiver"> Receiver (size 3 M)</label>
+
+    <p><strong>Retention:</strong></p>
+    <label><input type="radio" name="retention" value="Dome"> Dome</label>
+    <label><input type="radio" name="retention" value="Slim tip"> Slim tip/CShell</label>
+    <label><input type="radio" name="retention" value="Mould"> HA mould</label>
+    <label><input type="radio" name="retention" value="Soft mould"> Soft mould</label>
+
+    <p><strong>Filters:</strong></p>
+    <label><input type="checkbox" name="filters" value="HearClear"> HearClear</label>
+    <label><input type="checkbox" name="filters" value="Cerushield"> Cerushield</label>
+    <label><input type="checkbox" name="filters" value="Cerustop"> Cerustop</label>
+    <label><input type="checkbox" name="filters" value="ProWax"> ProWax Mini Fit</label>
+  </div>
+
+  <div class="section">
+    <h2>Hearing Aid Programming</h2>
+    <div class="field">
+      <label>Fitting Formula:</label>
+      <select name="fitting_formula">
+        <option value="Manufacturer Proprietary">Manufacturer Proprietary</option>
+        <option value="NAL NL2">NAL NL2</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Programming Details:</label>
+      <textarea name="programming_details" rows="3" cols="60"></textarea>
+    </div>
+    <p><strong>VC Setup:</strong></p>
+    <label><input type="checkbox" name="vc_setup" value="Activated"> VC activated & usage demonstrated</label>
+    <label><input type="checkbox" name="vc_setup" value="Disabled"> VC disabled</label>
+
+    <p><strong>Program Setup:</strong></p>
+    <label><input type="radio" name="program_setup" value="Automatic"> Automatic</label>
+    <label><input type="radio" name="program_setup" value="P1"> P1</label>
+    <label><input type="radio" name="program_setup" value="P2"> P2</label>
+
+    <p><strong>Accessory Setup:</strong></p>
+    <label><input type="checkbox" name="accessory" value="Remote"> Remote</label>
+    <label><input type="checkbox" name="accessory" value="App"> Remote App</label>
+    <label><input type="checkbox" name="accessory" value="TV Connector"> TV Connector</label>
+    <label><input type="checkbox" name="accessory" value="Remote Mic"> Remote Mic</label>
+
+    <div class="field">
+      <label>MPO check & client response:</label>
+      <textarea name="mpo_check" rows="2" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>Client impression of sound quality:</label>
+      <textarea name="impression_sound" rows="2" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>Client impression of comfort:</label>
+      <textarea name="impression_comfort" rows="2" cols="60"></textarea>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Verification & Validation</h2>
+    <div class="field">
+      <label>Real Ear Measurements:</label>
+      <input type="text" name="real_ear_measurements" />
+    </div>
+    <div class="field">
+      <label>Targets Met:</label>
+      <label><input type="radio" name="targets_met" value="Yes"> Yes</label>
+      <label><input type="radio" name="targets_met" value="No"> No</label>
+    </div>
+    <div class="field">
+      <label>Unaided Score:</label>
+      <input type="text" name="unaided_score" />
+    </div>
+    <div class="field">
+      <label>Aided Score:</label>
+      <input type="text" name="aided_score" />
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Device Management Review</h2>
+    <div class="field">
+      <label>Insertion & Removal:</label>
+      <textarea name="review_insertion" rows="2" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>Battery Change & On/Off:</label>
+      <textarea name="review_battery" rows="2" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>VC/PB Usage:</label>
+      <textarea name="review_vcpb" rows="2" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>Cleaning & Maintenance:</label>
+      <textarea name="review_cleaning" rows="2" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>App & Bluetooth Streaming:</label>
+      <textarea name="review_bluetooth" rows="2" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>Hearing Loss Education:</label>
+      <textarea name="review_education" rows="2" cols="60"></textarea>
+    </div>
+    <div class="field">
+      <label>Communication Strategies:</label>
+      <textarea name="review_communication" rows="2" cols="60"></textarea>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Appointment Summary Notes</h2>
+    <textarea name="appointment_summary" rows="4" cols="80"></textarea>
+  </div>
+
+  <div class="section">
+    <h2>Outcome Checklist & Plan</h2>
+    <p><strong>Fitting Fee:</strong></p>
+    <label><input type="checkbox" name="fee_private"> Private fee</label>
+    <label><input type="checkbox" name="fee_hsp_ftc"> HSP FTC</label>
+    <label><input type="checkbox" name="fee_topup"> HSP Top-up</label>
+    <label><input type="checkbox" name="fee_replacement"> Replacement fee $46.15</label>
+    <label><input type="checkbox" name="fee_bm">$B&M Fee $52.20</label>
+
+    <p><strong>Activate HSP Claim:</strong></p>
+    <select name="hsp_claim">
+      <option value="630">630</option>
+      <option value="640">640</option>
+      <option value="820">820</option>
+      <option value="830">830</option>
+      <option value="840">840</option>
+      <option value="850">850</option>
+    </select>
+
+    <p><strong>Plan of Action:</strong></p>
+    <label><input type="radio" name="plan_action" value="Follow up"> Follow-up appointment</label>
+    <label><input type="radio" name="plan_action" value="No follow up"> No follow-up required</label>
+
+    <p><strong>Future Recall:</strong></p>
+    <label><input type="radio" name="future_recall" value="Yes"> Yes</label>
+    <label><input type="radio" name="future_recall" value="No"> No</label>
+  </div>
+</body>
+</html>
